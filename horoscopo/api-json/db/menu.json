@@ -1,0 +1,14 @@
+[
+    {
+        "id" : 1,
+        "menu" : "pollo"
+    },
+    {
+        "id" : 2,
+        "menu" : "carne"
+    },
+    {
+        "id" : 3,
+        "menu" : "pescado"
+    }
+]

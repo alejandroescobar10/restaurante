@@ -34,6 +34,12 @@ const updateSigno = async (req, res)=>{
         message: "Updated"
     })
 }
+const mese= async (req,res)=>{
+    const mesero = req.params.mesero;
+    const pedido = await fs.readFile(path.join(__dirname,'../../db/menu.json'));
+    const resultado = JSON.parse(pedido);
+    res.json(resultado)
+}
 const login = async (req,res)=>{
     let {body} = req;
     let {username, password} = body;
@@ -61,5 +67,6 @@ module.exports = {
     getAllSignos,
     getOneSigno,
     updateSigno,
+    mese,
     login
 }

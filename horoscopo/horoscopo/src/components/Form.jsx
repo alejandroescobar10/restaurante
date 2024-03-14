@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Form({callback}){
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
-    const goTo = useNavigate();
+    let [username, setUsername] = useState(null);
+    let [password, setPassword] = useState(null);
+    let goTo = useNavigate();
  
     const validateUser = (event)=>{
         event.preventDefault();
@@ -23,11 +23,14 @@ function Form({callback}){
         })
         .then(res => res.json())
         .then(responseData => {
-            if(responseData.usuario.rol == "user"){
-            callback("user");
-            goTo("/userHome");
-        }else if(responseData.usuario.rol == "admin"){
+            if(responseData.usuario.rol == "admin"){
             callback("admin");
+            goTo("/userHome");
+        }else if(responseData.usuario.rol == "mesero"){
+            callback("mesero");
+            goTo("/adminHome");
+        }else if(responseData.usuario.rol == "cocina"){
+            callback("cocina");
             goTo("/adminHome");
         }
         })
