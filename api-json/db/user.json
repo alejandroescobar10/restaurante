@@ -1,15 +1,18 @@
 [
     {
+        "id" : 1,
         "username" : "Alejandro",
         "password" : "1234",
         "rol" : "admin"
     },
     {
+        "id" : 2,
         "username" : "mesero",
         "password" : "user2023",
         "rol" : "mesero"
     },
     {
+        "id" : 3,
         "username" : "cocina",
         "password" : "cocina2023",
         "rol" : "cocina"
