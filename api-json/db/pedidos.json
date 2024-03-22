@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "estado": "proceso",
+        "mesa": "2",
+        "mesero": "oscar",
+        "pedido":[
+            {
+                "producto": "haburguesa",
+                "cantidad": "2",
+                "precio": "30000"
+            },
+            {
+                "producto": "pizza",
+                "cantidad": "4",
+                "precio": "40000"
+            },
+            {
+                "producto": "malteada",
+                "cantidad": "4",
+                "precio": "40000"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "estado": "listo",
+        "mesa": "5",
+        "mesero": "oscar",
+        "pedido":[
+            {
+                "producto": "margarita",
+                "cantidad": "1",
+                "precio": "50000"
+            }
+        ]
+    }
+]

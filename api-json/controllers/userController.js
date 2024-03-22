@@ -2,14 +2,14 @@ const fs = require('fs/promises');
 const path = require('path');
 
 const getAllUsuarios= async (req, res)=>{
-    const users = await fs.readFile(path.join(__dirname,'../../db/user.json'));
+    const users = await fs.readFile(path.join(__dirname,'../db/user.json'));
     const userJson = JSON.parse(users)
     res.json(userJson);
 }
 
 const getOneUser = async (req, res)=>{
     const idUser = req.params.id;
-    const allUser = await fs.readFile(path.join(__dirname,'../../db/user.json'));
+    const allUser = await fs.readFile(path.join(__dirname,'../db/user.json'));
     const objUsers = JSON.parse(allUser);
     const result = objUsers.find((user) => {
         user.id == idUser;
@@ -20,10 +20,10 @@ const getOneUser = async (req, res)=>{
 const updateUser = async (req, res)=>{
     const idUser = req.params.id;
     const {username, password} = req.body;
-    const allUser = await fs.readFile(path.join(__dirname,'../../db/user.json'));
+    const allUser = await fs.readFile(path.join(__dirname,'../db/user.json'));
     const objUsers = JSON.parse(allUser);
    
-    const indice = objUsers.findIndex(user => user.id == id);
+    const indice = objUsers.findIndex(user => user.id == idUser);
 
     if (indice !=-1) {
         objUsers[indice] = {
@@ -32,7 +32,7 @@ const updateUser = async (req, res)=>{
             [password] : password
         }
     } else {
-        console.log('El ID no fue encontrado en el arreglo.');
+        console.log('El ID no fue encontrado en la base de datos.');
     }   
     
     //console.log(objUsers);
@@ -63,3 +63,9 @@ const login = async (req,res)=>{
         usuario: user_select
     })
 }
+module.exports = {
+    getAllUsuarios,
+    getOneUser,
+    updateUser,
+    login
+};
