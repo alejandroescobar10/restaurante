@@ -1,38 +1,87 @@
 [
-    {
-        "id": "1",
-        "estado": "proceso",
-        "mesa": "2",
-        "mesero": "oscar",
-        "pedido":[
-            {
-                "producto": "haburguesa",
-                "cantidad": "2",
-                "precio": "30000"
-            },
-            {
-                "producto": "pizza",
-                "cantidad": "4",
-                "precio": "40000"
-            },
-            {
-                "producto": "malteada",
-                "cantidad": "4",
-                "precio": "40000"
-            }
-        ]
-    },
-    {
-        "id": "2",
-        "estado": "listo",
-        "mesa": "5",
-        "mesero": "oscar",
-        "pedido":[
-            {
-                "producto": "margarita",
-                "cantidad": "1",
-                "precio": "50000"
-            }
-        ]
-    }
+  {
+    "id": "1",
+    "estado": "proceso",
+    "mesa": "1",
+    "mesero": "oscar",
+    "pedido": [
+      {
+        "producto": "haburguesa",
+        "cantidad": "2",
+        "precio": "30000"
+      },
+      {
+        "producto": "pizza",
+        "cantidad": "4",
+        "precio": "40000"
+      },
+      {
+        "producto": "malteada",
+        "cantidad": "4",
+        "precio": "40000"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "estado": "listo",
+    "mesa": "2",
+    "mesero": "David",
+    "pedido": [
+      {
+        "producto": "margarita",
+        "cantidad": "1",
+        "precio": "50000"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "estado": "listo",
+    "mesa": "2",
+    "mesero": "Oscar",
+    "pedido": [
+      {
+        "producto": "pizza",
+        "precio": "20000",
+        "cantidad": 2
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "estado": "listo",
+    "mesa": "2",
+    "mesero": "Oscar",
+    "pedido": [
+      {
+        "producto": "hamburguesa",
+        "precio": "15000",
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "estado": "proceso",
+    "mesa": "2",
+    "mesero": "Oscar",
+    "pedido": [
+      {
+        "producto": "hamburguesa",
+        "precio": "15000",
+        "cantidad": 2
+      },
+      {
+        "producto": "malteada",
+        "precio": "10000",
+        "cantidad": 1
+      },
+      {
+        "producto": "salchipapa",
+        "precio": "10000",
+        "cantidad": 3
+      }
+    ]
+  }
 ]

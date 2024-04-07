@@ -1,20 +1,30 @@
 [
-    {
-        "id" : 1,
-        "username" : "Alejandro",
-        "password" : "1234",
-        "rol" : "admin"
-    },
-    {
-        "id" : 2,
-        "username" : "mesero",
-        "password" : "user2023",
-        "rol" : "mesero"
-    },
-    {
-        "id" : 3,
-        "username" : "cocina",
-        "password" : "cocina2023",
-        "rol" : "cocina"
-    }
+  {
+    "id": 1,
+    "username": "Alejandro",
+    "password": "1234",
+    "rol": "admin"
+  },
+  {
+    "id": 2,
+    "username": "mesero",
+    "password": "user2023",
+    "rol": "mesero"
+  },
+  {
+    "id": 3,
+    "username": "cocina",
+    "password": "cocina2023",
+    "rol": "cocina"
+  },
+  {
+    "username": "Mauro",
+    "password": "1234",
+    "role": "admin"
+  },
+  {
+    "username": "nando",
+    "password": "12345",
+    "role": "admin"
+  }
 ]

@@ -2,52 +2,67 @@ import './styles/Form.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Form({callback}){
-    let [username, setUsername] = useState(null);
-    let [password, setPassword] = useState(null);
-    let goTo = useNavigate();
- 
-    const validateUser = (event)=>{
+function Form({ callback }) {
+    const [username, setUsername] = useState(null);
+    const [password, setPassword] = useState(null);
+    const goTo = useNavigate();
+
+    const validateUser = (event) => {
         event.preventDefault();
-        /*if(username === 'user' && password === 'user2023'){
-            callback("user");
-            goTo("/userHome");
-        }else if(username === 'admin' && password==='admin2023'){
+        /*if(username === 'admin' && password==='admin2023'){
             callback("admin");
             goTo("/adminHome");
-        }*/
-        fetch(`http://localhost:4000/v1/signos/login`, {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({username:username, password: password})
-        })
-        .then(res => res.json())
-        .then(responseData => {
-            if(responseData.usuario.rol == "admin"){
-            callback("admin");
-            goTo("/userHome");
-        }else if(responseData.usuario.rol == "mesero"){
+        }else if(username === 'mesero' && password ==='user2023'){
             callback("mesero");
-            goTo("/adminHome");
-        }else if(responseData.usuario.rol == "cocina"){
+            goTo("/mesero");
+        }else if(username === 'cocina' && password === 'cocina2023'){
             callback("cocina");
-            goTo("/adminHome");
-        }
+            goTo("/cocina");
+        }*/
+        fetch(`http://localhost:4000/v1/user/login`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: username, password: password })
         })
-        .catch(error => {
-            console.error('Error al realizar la solicitud:', error);
-        });
+            .then(res => res.json())
+            .then(responseData => {
+                console.log(responseData)
+                if (responseData.usuario.rol == "admin") {
+                    callback("admin");
+                    goTo("/admin");
+                } else if (responseData.usuario.rol == "mesero") {
+                    callback("mesero");
+                    goTo("/mesero");
+                } else if (responseData.usuario.rol == "cocina") {
+                    callback("cocina");
+                    goTo("/cocina");
+                }
+            })
+            .catch(error => {
+                console.error('Error al realizar la solicitud:', error);
+            });
     }
     return (
-        <form onSubmit={validateUser}>
-            <h1 id="txtBienvenida">Bienvenido a nuestro portal del Zodiaco</h1>
-            <h4 className="txt">Nombre de Usuario</h4>  
-            <input type="text" className="entry" onChange={(e)=> setUsername(e.target.value)}/><br></br>
-            <h4 className="txt">Contraseña</h4>  
-            <input type="password" className="entry" onChange={(e)=> setPassword(e.target.value)}/><br></br>
-            <input type="submit" value="Ingresar" id="btnEnviar"/>
-        </form>
+        <div className="container mt-5">
+            <form onSubmit={validateUser}>
+                <h1 className="mb-4 text-primary">Bienvenido a nuestro restaurante</h1>
+                <div className="mb-3">
+                    <label htmlFor="username" className="form-label">Nombre de Usuario</label>
+                    <input type="text" className="form-control" id="username" onChange={(e) => setUsername(e.target.value)} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Contraseña</label>
+                    <input type="password" className="form-control" id="password" onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <button type="submit" className="btn btn-primary">Ingresar</button>
+            </form>
+            <div className="mt-3">
+                {/* Enlace para ir a la vista de la cocina */}
+                <button className="btn btn-link" onClick={() => navigate('/cocina')}>Ir a la cocina</button>
+            </div>
+        </div>
+
     )
-}
+};
 
 export default Form;

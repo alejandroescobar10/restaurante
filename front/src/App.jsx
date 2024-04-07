@@ -1,23 +1,30 @@
 import './App.css';
+
 import Form from './components/Form';
-import UserHome from './components/UserHome';
-import AdminHome from './components/AdminHome';
+//import UserHome from './components/UserHome';
+//import AdminHome from './components/AdminHome';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'; 
 import { useState } from 'react';
+import Admin from './components/Admin';
+import Mesero from './components/mesero';
+import Cocina from './components/cocina';
 
 function App() {
   const [user, setUser] = useState(null);
   return (  
     <BrowserRouter>
-      {/* <Navigation/> */}
-      <Routes>
+     {/* <Navigation/> */ } 
+     <Routes>
         <Route index element={<Form callback={setUser}/>}></Route>
-        <Route path='/userHome' element={<UserHome user={user}/>}></Route>
-        <Route path='/adminHome' element={<AdminHome user={user}/>}></Route>
+        <Route path='/admin' element={<Admin user={user}/>}></Route>
+        <Route path='/mesero' element={<Mesero user={user}/>}></Route>
+        <Route path='/cocina' element={<Cocina user={user}/>}></Route>
+
       </Routes>
     </BrowserRouter>
   )
 }
+
 
 // function Navigation(){
 //   return <nav>
@@ -32,4 +39,4 @@ function App() {
 //   </nav>
 // }
 
-export default App
+export default App;

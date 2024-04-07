@@ -8,6 +8,7 @@ router
     .get('/getAllUsuarios', userController.getAllUsuarios)
     .get('/getOneUser', userController.getOneUser)
     .patch('/updateUser', userController.updateUser)
+    .post('/agregarUsuario', userController.agregarUsuario)
     //guardar pedidos
     //.post('/pedido/:id', pedidoController.pedido)
     //.get('/listarPedido', pedidoController.listarPedido)

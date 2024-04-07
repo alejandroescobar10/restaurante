@@ -1,19 +1,20 @@
 const routerApi = require('./routes')
-const express = require('express');
+const express = require('express');//Se agrega al index de las rutas
 const {urlencoded, json} = require('express');
-
 const cors = require('cors');
+
 
 const app = express();
 
 app.use(urlencoded({extended: true}))
 app.use(json())
 
-app.use(cors())
+app.use(cors());
 
-const rutas = express.Router();
+const rutas = express.Router();//Se agrega al index de las rutas
 routerApi(rutas); 
-app.use('/v1/user', rutas);
+app.use('/v1', rutas);//Se agrega al index de las rutas
+
 
 
 
